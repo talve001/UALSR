@@ -116,10 +116,10 @@
       <!-- blog contect -->
       <div class="col-12 mb-5">
         <h2>O KUKA KR5 em Ação </h2>
-        <p>O KR5, da KUKA Industrial Robotics é um robô particularmente leve e compacto, este possui 6DOF(Degrees of Freedom),
+        <p>O KR5, da KUKA Industrial Robotics é um robô particularmente leve e compacto, este possui 6DOF (Degrees of Freedom),
           ou seja, seis graus de liberdade, e está orientado, principalmente, para trabalhos de soldadura.
           Na figura acima, conseguimos ver o diagrama estrutural do Robô com os seus graus de liberdade (figura da esquerda), 
-          assim como o seu raio de ação durante a operação do mesmo(figura da direita).
+          assim como o seu raio de ação durante a operação do mesmo (figura da direita).
         </p>
         <p>
           Vamos agora apresentar o Kuka a funcionar.
@@ -149,7 +149,7 @@
               • a (link lenght) - É a distância entre os eixos zj-1 e zj por todo o eixo de xj; e por interceptar os eixos paralelos em zj-1 x zj
             </li>
             <li>
-              • alpha (link twist) - O ângulo desde os eixo zj-1 até zj sobre o eixo de xj
+              • alpha (link twist) - O ângulo desde o eixo zj-1 até zj sobre o eixo de xj
             </li>
             <li>
               • offset (joint type) - offset = R para uma junta de revolução, offset = P para uma junta prismática
@@ -161,11 +161,11 @@
         <samp>tempo = [0:0.1:3] % Este intervalo de tempo considera 0.08s para o movimento do robô durante a simulação</samp>
         <p></p>
         <p>
-          Depois de criarmos o vetor de tempo, vamos começar por definir a cinemática direta para o KUKA KR5.
+          Depois de criarmos o vetor de tempo, vamos começar por definir a Cinemática Direta para o KUKA KR5.
           <br>
-          Para calcularmos a cinemática direta, utilizámos o método <samp>fkine</samp> disponível na Robotics Toolbox
+          Para calcularmos a Cinemática Direta, utilizámos o método <samp>fkine</samp> disponível na Robotics Toolbox.
           <br>
-          A cinemática direta, serve para encontrar a posição do end-effector a partir de valores dos parâmetros das juntas.
+          A Cinemática Cireta, serve para encontrar a posição do end-effector a partir de valores dos parâmetros das juntas.
           <br>
         </p>
         <p>
@@ -175,22 +175,22 @@
           <samp>pos_B = [0 pi/3 -pi/10 -pi/6 pi/5 pi/3] %posição final do robô</samp>
           <br>
           <br>
-          O nosso objetivo é mostrar o ponto de partida do Robô, e o ponto que pretendemos que o Robô alcance
+          O nosso objetivo é mostrar o ponto de partida do Robô, e o ponto que pretendemos que o Robô alcance.
           <br>
           Para o ponto de partida, temos o Robô em qz, ou seja com todos os ângulos a zero.
           <img src="images/kukaqz.png" class="img-fluid">
           <br>
-          Aqui temos o KUKA KR5 em <samp>qz</samp>, ou seja com os ângulos a zeros
+          KUKA KR5 em <samp>qz</samp>, ou seja, com os ângulos a zeros.
           <br>
           <br>
-          Para o ponto de chegada, queremos que o KUKA KR5 esteja com o cotovelo levantado, e com o end-effector apontado para a frente
+          Para o ponto de chegada, queremos que o KUKA KR5 esteja com o cotovelo levantado, e com o end-effector apontado para a frente.
           <br>
           <img src="images/kukakr5final.png" class="img-fluid">
           <br>
-          Aqui podemos ver o KUKA KR5 na posição final desejada.
+          KUKA KR5 na posição final desejada.
           <br>
           <br>
-          Agora vamos testar os movimentos. Vamos começar ver a trajetória do inicio ao fim
+          Agora vamos testar os movimentos. Vamos começar por ver a trajetória do início ao fim.
           <br>
           <div class="video-block block">
             <video src="images/kukaKR5atob.mp4" autoplay muted loop ></video>
@@ -206,29 +206,29 @@
         <h4>O próximo passo, será obter a Cinemática Direta</h4>
         <br>
         Para tal, e como acima indicado, vamos utilizar o método <samp>fkine</samp> disponível na Robotics Toolbox de Peter Corke.
-        Este método permite obter a cinemática direta no nosso Robô e irá apresentar a matriz homogénea correspondente à pose do end-effector.
+        Este método permite obter a Cinemática Direta no nosso Robô e irá apresentar a matriz homogénea correspondente à pose do end-effector.
         <br>
         <br>
         <samp>T = KR5.fkine(trajcd) %calculo da cinemática direta</samp>
         <br>
         <br>
-        Ao efetuar o código acima no matlab, 32 matrizes serão criadas, isso quer dizer que a cinemática direta foi corretamente
+        Ao efetuar o código acima no matlab, 32 matrizes serão criadas, isso quer dizer que a Cinemática Direta foi corretamente
         aplicada.
         <br>
         <br>
         <h4>Depois da Cinemática Direta, vamos para a Cinemática Inversa</h4>
         <br>
-        A cinemática inversa é um processo matemático para calcular as variáveis dos paramêtros das juntas
-        necessárias para colocar em prática o fim da cadeia cinemática. Desta forma iremos
-        conseguir obter a pose de um Robô numa determinada orientação ao inicio desta mesma cadeia.
+        A Cinemática Inversa é um processo matemático para calcular as variáveis dos paramêtros das juntas
+        necessárias para colocar em prática o fim da cadeia Cinemática. Desta forma iremos
+        conseguir obter a pose de um Robô numa determinada orientação ao início desta mesma cadeia.
         <br>
         <samp>cininv = KR5.ikine(T) %cálculo da cinemática inversa</samp>
         <br>
-        Agora vamos apresentar algumas abordagens do nosso KUKA KR5 em determinas poses
-        utilizando a cinemática inversa.
+        Agora vamos apresentar algumas abordagens do nosso KUKA KR5 em determinadas poses
+        utilizando a Cinemática Inversa.
         <br>
         <br>
-        KUKA KR5 em cinemática inversa (simples)
+        KUKA KR5 em Cinemática Inversa (simples)
         <br>
         <img src="images/kukaKR5ikine.png" class="img-fluid">
         <br>
@@ -244,18 +244,18 @@
         <br>
         <h4>Agora vamos fazer alguns testes de Movimento ao KUKA KR5</h4>
         <br>
-        Agora que já conseguimos obter as cinemáticas, vamos observar o comportamento do KUKA KR5 em determinados cenários
+        Agora que já conseguimos obter as cinemáticas, vamos observar o comportamento do KUKA KR5 em determinados cenários.
         <br>
-        Iremos definir criar 6 eventos com diferentes coordenadas. O objetivo é utilizar a cinemática inversa
-        para obter ângulos a partir das coordenadas X Y e Z dos eventos criados.
+        Iremos criar 6 eventos com diferentes coordenadas. O objetivo é utilizar a Cinemática Inversa
+        para obter ângulos a partir das coordenadas X, Y e Z dos eventos criados.
         <br>
-        Iremos utilizar um novo método, o <samp>ikcon</samp> em vez do tipico <samp>ikine</samp>
-        porque o primeiro tem uma optimização para controlar o limite das juntas.
-        Também é uma mais valia para o nosso cenário, uma vez que minimiza a margem de erro entre a cinemática direta 
-        a soluções de ajuste do end-effector.
+        Iremos utilizar um novo método, o <samp>ikcon</samp> em vez do típico <samp>ikine</samp>,
+        porque o primeiro tem uma otimização para controlar o limite das juntas.
+        Também é uma mais valia para o nosso cenário, uma vez que minimiza a margem de erro entre a Cinemática Direta 
+        para soluções de ajuste do end-effector.
         <br>
-        Mas antes de criarmos os eventos, teremos que definir uma nova métrica de tempo, para 
-        obsevarmos o comportamento do Robô.
+        Mas antes de criarmos os eventos, teremos que definir uma nova métrica de tempo para 
+        observarmos o comportamento do Robô.
         <br>
         <br>
         <samp>% Coordenadas em X Y e Z</samp>
@@ -273,7 +273,7 @@
         <samp>ponto6 = SE3(-15, -10, -16);</samp>
         <br>
         <br>
-        Agora que já temos os pontos definidos, vamos aplicar a cinemática inversa para obter os ângulos
+        Agora que já temos os pontos definidos, vamos aplicar a Cinemática Inversa para obter os ângulos
         a partir das coordenadas criadas.
         <br>
         <br>
@@ -293,7 +293,7 @@
         Como nos foi ensinado nas aulas teóricas, é importante garantirmos que conhecemos todas as singularidades que o 
         nosso Robô pode ter. 
         <br>
-        Vamos criar matrizes jacobianas para cada ponto para determinarmos a existência de alguma singularidade
+        Vamos criar matrizes Jacobianas para cada ponto para determinarmos a existência de alguma singularidade.
         <br>
         <br>
         <samp>J1 = KR5.jacobn(q1);
@@ -319,7 +319,7 @@
         <br>
         <br>
         E pronto! Agora é a parte interessante! Vamos ver o KUKA KR5 a passar pelos vários pontos
-        desde do início até ao fim (posição A até à posição B)
+        desde do início até ao fim (posição A até à posição B).
         <br>
         <br>
         <h5>Da Posição inicial (pos_A) até ao ponto1</h5>
@@ -371,7 +371,7 @@
           </samp>
         <br>
         <br>
-        <h5>E, finalmente do ponto6 à posição final (pos_B)</h5>
+        <h5>E, finalmente, do ponto6 à posição final (pos_B)</h5>
         <div class="video-block block">
          <video src="images/kukaKR56toB.mp4" autoplay muted loop ></video>
         </div>
@@ -379,15 +379,15 @@
           plot(KR5,path, 'trail', {"r", 'LineWidth', 8}, 'movie', 'kukaKR56toB.mp4');% E finalmente. Posição Ponto6 até Posição B</samp>
         <br>
         <br>
-        Nos pedaços de código, colocámos a trajetória do movimento com <samp>trail</samp> e também colocámos a forma de extrair o filme em formato .mp4 para a drive da Matlab  com o método <samp>movie</samp>.        
+        Nos pedaços de código colocámos a trajetória do movimento com <samp>trail</samp> e também colocámos a forma de extrair o filme em formato .mp4 para a drive da Matlab  com o método <samp>movie</samp>.        
       </p>
         <h2>Outra abordagem com o KUKA KR5 </h2>
         <p>
-          Vamos apresentar uma abordagem inspirada num exemplo partilhado por Peter Corke
+          Vamos apresentar uma abordagem inspirada num exemplo partilhado por Peter Corke.
       </p>
         <h2>Unir 4 esferas e formar um Quadrado</h2>
         <br>
-        <h3>Desta vez iremos apenas utilizar a Cinemática Inversa</h3>
+        <h3>Desta vez iremos apenas utilizar a Cinemática Inversa.</h3>
         <br>
         <p>
          Primeiro passo, criar o Robô
@@ -420,7 +420,7 @@
         </samp>
         <br>
         <p>
-          Agora temos a parte que é necessário gerar as trajetórias
+          Agora temos a parte em que é necessário gerar as trajetórias
         </p>
         <samp>
           % Cria a trajetória, e a matriz com cada linha considerando (x, y, z,<br>

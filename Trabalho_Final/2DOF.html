@@ -117,16 +117,16 @@
       <div class="col-12 mb-5">
         <h2>O PLANAR 2DOF em Ação </h2>
         <p>
-          Para este Robô, vamos mostrar o comportamento do mesmo quando aplicada a Cinemática Direta, e Inversa, e também vamos mostrar como é que este mecanismo simples consegue criar algumas letras.
+          Para este Robô, vamos mostrar o comportamento do mesmo quando aplicada a Cinemática Direta e Inversa, e também vamos mostrar como é que este mecanismo simples consegue criar algumas letras.
         </p>
         <p>Curiosidade:<br>
         A imagem que apresentamos é referente a um projeto feito na Universidade de Chiba, Japão, onde os alunos desenvolveram este Robô de duas juntas que é capaz de nos vencer a jogar Air Hockey.
-      Caso queiram ter mais detalhes, não se privem de ler este <a href="https://spectrum.ieee.org/automaton/robotics/artificial-intelligence/japanese-air-hockey-robot" class = "streched-link">artigo</a></p>
+      Caso queiram ter mais detalhes, não se privem de ler este <a href="https://spectrum.ieee.org/automaton/robotics/artificial-intelligence/japanese-air-hockey-robot" class = "streched-link">artigo.</a></p>
         <p>
-          Como normal, iremos iniciar como a aplicação das Cinemáticas (Direta e Inversa), e iremos mostrar a trajetória do Robô do ponto de partida até ao ponto de chegada, que
+          Como normal, iremos iniciar a aplicação das Cinemáticas (Direta e Inversa), e iremos mostrar a trajetória do Robô do ponto de partida até ao ponto de chegada, que
            neste caso será em pi e pi/4.<br>
            <br>
-          Vamos começar por criar o Robô, e olhar para o mesmo:<br>
+          Vamos começar por criar o Robô, e olhar para o mesmo<br>
           <samp>
             mdl_planar2 % Cria o Robô<br>
             p2 % Mostra os dados do Robô<br>
@@ -149,7 +149,7 @@
         </p>
         <br>
         <p>
-         E agora vamos para a Cinemática Inversa.<br>
+         E agora vamos para a Cinemática Inversa<br>
          <samp>
           m3 = p2.ikine(m1, 'mask', [1 1 0 0 0 0]) % Cinemática inversa<br>
           m4 = p2.ikine(m2, 'mask', [1 1 0 0 0 0]) % Cinemática inversa<br>
@@ -171,9 +171,9 @@
         <br>
         <h3>2DOF a Desenhar algumas letras</h3><br>
         <p>
-          Para podermos desenhar letras, iremos necessitar de usar uma fonte denominada de <samp>hershey</samp>, esta foi criada pelo Dr. Allen V. hershey
+          Para podermos desenhar letras, iremos necessitar de usar uma fonte denominada de <samp>hershey</samp>, esta foi criada pelo Dr. Allen V. Hershey
           no Laboratório Naval de Armamento em 1967, e permite que um Robô consiga desenhar uma letra.<br>
-          A Robotics Toolbobox já vem equipada com essa fonte, portanto, vamos tirar partido da mesma.
+          A Robotics Toolbox já vem equipada com essa fonte, portanto, vamos tirar partido da mesma.
         </p>
         <p>
           Vamos começar por inciar o Robô, e carregar a fonte <samp>hershey</samp><br>
@@ -198,7 +198,7 @@
             q = p2.ikine(Tp, 'mask', [1 1 0 0 0 0]) % Aplicação da Cinemática Inversa <br>
           </samp>
           <br>
-          E por fim, vamos desenhar a letra S. <br>
+          E por fim, vamos desenhar a letra S<br>
           <samp>
             plot3(traj(:, 1), traj(:, 2), traj(:, 3)) % faz o plot das coordenadas no espaço a 3 dimensões<br>
             grid<br>
@@ -208,7 +208,7 @@
             <video src="images/2DOF_S.mp4" autoplay muted loop ></video>
            </div>
         </p>
-        <h5> Vamos fazer o mesmo mas para a letra R</h5>
+        Vamos fazer o mesmo mas para a letra R
         <br>
         <samp>
           D1 = hershey{'R'} % Define a letra que vamos usar<br>
@@ -231,7 +231,7 @@
           p2.plot(q1, 'trail', {'y', 'LineWidth', 4}, 'movie', '2DOF_R.mp4')<br>
         </samp>
         <br>
-        E vamos ver o Robô a desenhar a letra R.
+        E vamos ver o Robô a desenhar a letra R
         <div class="video-block block">
           <video src="images/2DOF_R.mp4" autoplay muted loop ></video>
          </div>
