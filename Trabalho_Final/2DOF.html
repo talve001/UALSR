@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>UAL - SR 30003444 | 30003460</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+
+</head>
+
+<body>
+  <!-- preloader start -->
+  <div class="preloader">
+    <img src="images/preloader.gif" alt="preloader">
+  </div>
+  <!-- preloader end -->
+
+<!-- header -->
+<header class="fixed-top header">
+  <!-- top header -->
+  <div class="top-header py-2 bg-white">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-lg-5 text-center text-lg-left">
+          <a class="text-color mr-3" href="https://www.ual.pt"><strong>Universidade Autónoma de Lisboa</strong> || Sistemas de Robótica</a>
+        </div>
+        <div class="col-lg-6 text-center text-lg-right">
+          <a class="text-color mr-3" href="https://www.ual.pt"><strong>Trabalho Realizado Por: </strong> Miguel Lima || Tiago Alves</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- navbar -->
+  <div class="navigation w-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark p-0">
+        <a class="navbar-brand" href="index.html"><img src="images/Logo UAL - Vector.png" alt="logo"></a>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item @@home">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item @@about">
+              <a class="nav-link" href="about.html">Introdução </a>
+            </li>
+            <li class="nav-item @@courses">
+              <a class="nav-link" href="KUKAKR5.html">KUKA KR5</a>
+            </li>
+            <li class="nav-item @@events">
+              <a class="nav-link" href="2DOF.html">PLANAR 2DOF STANDARD</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- /header -->
+
+<!-- page title -->
+<section class="page-title-section overlay" data-background="images/2DOFbanner.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item h2 text-primary font-secondary">Os Robôs</a></li>
+          <li class="list-inline-item text-white h3 font-secondary nasted"> PLANAR 2DOF STANDARD</li>
+        </ul>
+        <p class="text-lighten">Robôs planares, são mecanismos simples.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+<!-- blog details -->
+<section class="section-sm bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-4">
+        <img src="images/2DOFintro.jpeg" alt="blog-thumb" class="img-fluid w-100">
+      </div>
+      <!-- border -->
+      <div class="col-12 mt-4">
+        <div class="border-bottom border-primary"></div>
+      </div>
+      <!-- blog contect -->
+      <div class="col-12 mb-5">
+        <h2>O PLANAR 2DOF em Ação </h2>
+        <p>
+          Para este Robô, vamos mostrar o comportamento do mesmo quando aplicada a Cinemática Direta, e Inversa, e também vamos mostrar como é que este mecanismo simples consegue criar algumas letras.
+        </p>
+        <p>Curiosidade:<br>
+        A imagem que apresentamos é referente a um projeto feito na Universidade de Chiba, Japão, onde os alunos desenvolveram este Robô de duas juntas que é capaz de nos vencer a jogar Air Hockey.
+      Caso queiram ter mais detalhes, não se privem de ler este <a href="https://spectrum.ieee.org/automaton/robotics/artificial-intelligence/japanese-air-hockey-robot" class = "streched-link">artigo</a></p>
+        <p>
+          Como normal, iremos iniciar como a aplicação das Cinemáticas (Direta e Inversa), e iremos mostrar a trajetória do Robô do ponto de partida até ao ponto de chegada, que
+           neste caso será em pi e pi/4.<br>
+           <br>
+          Vamos começar por criar o Robô, e olhar para o mesmo:<br>
+          <samp>
+            mdl_planar2 % Cria o Robô<br>
+            p2 % Mostra os dados do Robô<br>
+            p2.plot(qz) % Mostra o Robô na posição inicial<br>
+          </samp>
+          <img src="images/2DOFqz.png" class="img-fluid" alt="Responsive image">
+        </p>
+        <br>
+        <p>
+          Próximo passo, passará pela obtenção da Cinemática Direta<br>
+          <samp>
+            m1 = p2.fkine([0 0]) % cinemática direta com os ângulos a zero<br>
+            m2 = p2.fkine([pi pi/4]) % cinemática direta em pi pi/4<br>
+            p2.plot([pi pi/4]) % Robô em pi pi/4<br>
+          </samp>
+          <br>
+          E também vamos aproveitar o Robô na posição de chegada<br>
+          <img src="images/2DOFarrival.png" class="img-fluid" alt="Responsive image"><br>
+          Aqui podemos ver o Robô em pi pi/4 que será o ponto de chegada previsto.
+        </p>
+        <br>
+        <p>
+         E agora vamos para a Cinemática Inversa.<br>
+         <samp>
+          m3 = p2.ikine(m1, 'mask', [1 1 0 0 0 0]) % Cinemática inversa<br>
+          m4 = p2.ikine(m2, 'mask', [1 1 0 0 0 0]) % Cinemática inversa<br>
+          p2.plot(m3) % Robô em cinemática inversa pi pi/4<br>
+         </samp>
+         <br>
+        </p>
+        <p>
+          E por fim, vamos ver a trajetória que o Robô irá fazer desde do seu ponto inicial (qz) até pi pi/4<br>
+          <samp>
+            tempo = [0:0.1:3] % Definimos um vetor de tempo<br>
+            q = jtraj(m3, m4, tempo) % Definimos a trajetória<br>
+            p2.plot(q, 'trail', {'r', "LineWidth", 6}, 'movie', '2DOFatob.mp4') % Animação com a trajetória<br>
+          </samp>
+          <div class="video-block block">
+            <video src="images/2DOFatob.mp4" autoplay muted loop ></video>
+           </div>
+        </p>
+        <br>
+        <h3>2DOF a Desenhar algumas letras</h3><br>
+        <p>
+          Para podermos desenhar letras, iremos necessitar de usar uma fonte denominada de <samp>hershey</samp>, esta foi criada pelo Dr. Allen V. hershey
+          no Laboratório Naval de Armamento em 1967, e permite que um Robô consiga desenhar uma letra.<br>
+          A Robotics Toolbobox já vem equipada com essa fonte, portanto, vamos tirar partido da mesma.
+        </p>
+        <p>
+          Vamos começar por inciar o Robô, e carregar a fonte <samp>hershey</samp><br>
+          <samp>
+            mdl_planar2 %cria o Robô<br>
+            load hershey %carrega a fonte hershey<br><br>
+          </samp>
+          Agora vamos avançar para definição da letra e desenhar o caminho pretendido<br>
+          <samp>
+            D = hershey{'S'} % Define a letra que vamos usar<br>
+            D.stroke % desenho da letra<br>
+            path = [1*D.stroke; zeros(1, numcols(D.stroke))] % caminho da caneta, cada NaN indica o fim de um segmento<br>
+            k = find(isnan(path(1, :))) % escala do caminho<br>
+            path(:, k) = path(:, k-1) % caminho<br>
+          </samp>
+          <br>
+          E vamos definir a trajetória e aplicar a Cinemática Inversa<br>
+          <samp>
+            traj = mstraj(path(:,2:end)', [2 2 2], [], path(:,1)', 0.02, 0.2) % converte a trajetória num movimento continuo<br>
+            tempo = numrows(traj) * 0.02 % vetor tempo, ou seja, vai levar cerca de 7 segundos a desenhar a letra<br>
+            Tp = SE3(0, 0, 0) * SE3(traj) * SE3.oa([0 1 0], [0 0 -1]) % Orientação da caneta<br>
+            q = p2.ikine(Tp, 'mask', [1 1 0 0 0 0]) % Aplicação da Cinemática Inversa <br>
+          </samp>
+          <br>
+          E por fim, vamos desenhar a letra S. <br>
+          <samp>
+            plot3(traj(:, 1), traj(:, 2), traj(:, 3)) % faz o plot das coordenadas no espaço a 3 dimensões<br>
+            grid<br>
+            p2.plot(q, 'trail', {'y', 'LineWidth', 4}, 'movie', '2DOF_S.mp4') % faz plot do Robô e exporta a animação para um ficheiro de vídeo <br>
+          </samp>
+          <div class="video-block block">
+            <video src="images/2DOF_S.mp4" autoplay muted loop ></video>
+           </div>
+        </p>
+        <h5> Vamos fazer o mesmo mas para a letra R</h5>
+        <br>
+        <samp>
+          D1 = hershey{'R'} % Define a letra que vamos usar<br>
+          D1.stroke % desenho da letra<br>
+          path1 = [1*D1.stroke; zeros(1, numcols(D1.stroke))] % caminho da caneta, cada NaN indica o fim de um segmento<br>
+          k1 = find(isnan(path1(1, :))) % escala do caminho<br>
+          path1(:, k1) = path1(:, k1-1) % caminho<br>
+        </samp>
+        <br>
+        <samp>
+          traj1 = mstraj(path1(:,2:end)', [2 2 2], [], path1(:,1)', 0.02, 0.2) % converte a trajetória num movimento continuo<br>
+          tempo1 = numrows(traj1) * 0.02 % vetor tempo, ou seja, vai levar cerca de 7 segundos a desenhar a letra<br>
+          Tp1 = SE3(0, 0, 0) * SE3(traj1) * SE3.oa([0 1 0], [0 0 -1]) % Orientação da caneta<br>
+          q1 = p2.ikine(Tp1, 'mask', [1 1 0 0 0 0]) % Aplicação da Cinemática Inversa<br>
+        </samp>
+        <br>
+        <samp>
+          plot3(traj1(:, 1), traj1(:, 2), traj1(:, 3))<br>
+          grid<br>
+          p2.plot(q1, 'trail', {'y', 'LineWidth', 4}, 'movie', '2DOF_R.mp4')<br>
+        </samp>
+        <br>
+        E vamos ver o Robô a desenhar a letra R.
+        <div class="video-block block">
+          <video src="images/2DOF_R.mp4" autoplay muted loop ></video>
+         </div>
+      </div>
+
+ </section>
+<!-- jQuery -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="plugins/venobox/venobox.min.js"></script>
+<!-- filter -->
+<script src="plugins/filterizr/jquery.filterizr.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+<script src="plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

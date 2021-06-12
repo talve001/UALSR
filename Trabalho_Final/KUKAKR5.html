@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>UAL - SR 30003444 | 30003460</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+
+</head>
+
+<body>
+  <!-- preloader start -->
+  <div class="preloader">
+    <img src="images/preloader.gif" alt="preloader">
+  </div>
+  <!-- preloader end -->
+
+<!-- header -->
+<header class="fixed-top header">
+  <!-- top header -->
+  <div class="top-header py-2 bg-white">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-lg-5 text-center text-lg-left">
+          <a class="text-color mr-3" href="https://www.ual.pt"><strong>Universidade Autónoma de Lisboa</strong> || Sistemas de Robótica</a>
+        </div>
+        <div class="col-lg-6 text-center text-lg-right">
+          <a class="text-color mr-3" href="https://www.ual.pt"><strong>Trabalho Realizado Por: </strong> Miguel Lima || Tiago Alves</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- navbar -->
+  <div class="navigation w-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark p-0">
+        <a class="navbar-brand" href="index.html"><img src="images/Logo UAL - Vector.png" alt="logo"></a>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item @@home">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item @@about">
+              <a class="nav-link" href="about.html">Introdução </a>
+            </li>
+            <li class="nav-item @@courses">
+              <a class="nav-link" href="KUKAKR5.html">KUKA KR5</a>
+            </li>
+            <li class="nav-item @@events">
+              <a class="nav-link" href="2DOF.html">PLANAR 2DOF STANDARD</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- /header -->
+
+<!-- page title -->
+<section class="page-title-section overlay" data-background="images/kukakr5intro.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item h2 text-primary font-secondary">Os Robôs</a></li>
+          <li class="list-inline-item text-white h3 font-secondary nasted"> KUKA KR5</li>
+        </ul>
+        <p class="text-lighten">A KUKA Industrial Robots é uma das líderes mundiais na manufacturação de Robôs Industriais e Sistemas de Automação.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+<!-- blog details -->
+<section class="section-sm bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-4">
+        <img src="images/kukakr5schema.png" alt="blog-thumb" class="img-fluid w-100">
+      </div>
+      <!-- border -->
+      <div class="col-12 mt-4">
+        <div class="border-bottom border-primary"></div>
+      </div>
+      <!-- blog contect -->
+      <div class="col-12 mb-5">
+        <h2>O KUKA KR5 em Ação </h2>
+        <p>O KR5, da KUKA Industrial Robotics é um robô particularmente leve e compacto, este possui 6DOF(Degrees of Freedom),
+          ou seja, seis graus de liberdade, e está orientado, principalmente, para trabalhos de soldadura.
+          Na figura acima, conseguimos ver o diagrama estrutural do Robô com os seus graus de liberdade (figura da esquerda), 
+          assim como o seu raio de ação durante a operação do mesmo(figura da direita).
+        </p>
+        <p>
+          Vamos agora apresentar o Kuka a funcionar.
+        </p>
+      </div>
+
+      <div class="col-12 mb-5">
+        <h2>Vamos começar por criar o KUKA KR5</h2>
+        <samp>mdl_KR5         % Cria o Robô</samp>
+        <p></p>
+        <samp>KR5             % Mostra os detalhes do Robô (Parametros DH) </samp>
+        <p></p>
+        <img src="images/kukakr5dhmatlab.png" class="img-fluid" alt="Responsive image">
+        <p>
+          Ao criar o Robô, podemos ver na figura acima os paramêtros de Denavit-Hartenberg (DH). Interpretando a tabela, temos:
+          <ul>
+            <li>
+              • j - É o indentificador
+            </li>
+            <li>
+              • theta (joint angle) - É o ângulo entre os eixos xj-1 e xj sobre os eixos zj-1
+            </li>
+            <li>
+              • d (link offset) - É a distância desde da origem do "frame" j-1 até ao eixo xj por todo o eixo de zj-1
+            </li>
+            <li>
+              • a (link lenght) - É a distância entre os eixos zj-1 e zj por todo o eixo de xj; e por interceptar os eixos paralelos em zj-1 x zj
+            </li>
+            <li>
+              • alpha (link twist) - O ângulo desde os eixo zj-1 até zj sobre o eixo de xj
+            </li>
+            <li>
+              • offset (joint type) - offset = R para uma junta de revolução, offset = P para uma junta prismática
+            </li>
+          </ul>
+        </p>
+        <h3>Agora precisamos de criar um vetor de tempo</h3>
+        <p></p>
+        <samp>tempo = [0:0.1:3] % Este intervalo de tempo considera 0.08s para o movimento do robô durante a simulação</samp>
+        <p></p>
+        <p>
+          Depois de criarmos o vetor de tempo, vamos começar por definir a cinemática direta para o KUKA KR5.
+          <br>
+          Para calcularmos a cinemática direta, utilizámos o método <samp>fkine</samp> disponível na Robotics Toolbox
+          <br>
+          A cinemática direta, serve para encontrar a posição do end-effector a partir de valores dos parâmetros das juntas.
+          <br>
+        </p>
+        <p>
+          <h4>Vamos criar as coordenadas do Robô</h4>
+          <samp>pos_A = [0 0 0 0 0 0] % Posição Inicial do robô (em qz)</samp>
+          <br>
+          <samp>pos_B = [0 pi/3 -pi/10 -pi/6 pi/5 pi/3] %posição final do robô</samp>
+          <br>
+          <br>
+          O nosso objetivo é mostrar o ponto de partida do Robô, e o ponto que pretendemos que o Robô alcance
+          <br>
+          Para o ponto de partida, temos o Robô em qz, ou seja com todos os ângulos a zero.
+          <img src="images/kukaqz.png" class="img-fluid">
+          <br>
+          Aqui temos o KUKA KR5 em <samp>qz</samp>, ou seja com os ângulos a zeros
+          <br>
+          <br>
+          Para o ponto de chegada, queremos que o KUKA KR5 esteja com o cotovelo levantado, e com o end-effector apontado para a frente
+          <br>
+          <img src="images/kukakr5final.png" class="img-fluid">
+          <br>
+          Aqui podemos ver o KUKA KR5 na posição final desejada.
+          <br>
+          <br>
+          Agora vamos testar os movimentos. Vamos começar ver a trajetória do inicio ao fim
+          <br>
+          <div class="video-block block">
+            <video src="images/kukaKR5atob.mp4" autoplay muted loop ></video>
+        </div>
+        <br>
+        O código utilizado para extrairmos este vídeo foi:
+        <br>
+        <samp>trajcd = jtraj(pos_A, pos_B, tempo) %calculo da trajetória</samp>
+        <br>
+        <samp>plot(KR5, trajcd, 'movie', 'kukaKR5atob.mp4') % plota o cálculo da trajetória, assim como guarda a mesma em video</samp>
+        <br>
+        <br>
+        <h4>O próximo passo, será obter a Cinemática Direta</h4>
+        <br>
+        Para tal, e como acima indicado, vamos utilizar o método <samp>fkine</samp> disponível na Robotics Toolbox de Peter Corke.
+        Este método permite obter a cinemática direta no nosso Robô e irá apresentar a matriz homogénea correspondente à pose do end-effector.
+        <br>
+        <br>
+        <samp>T = KR5.fkine(trajcd) %calculo da cinemática direta</samp>
+        <br>
+        <br>
+        Ao efetuar o código acima no matlab, 32 matrizes serão criadas, isso quer dizer que a cinemática direta foi corretamente
+        aplicada.
+        <br>
+        <br>
+        <h4>Depois da Cinemática Direta, vamos para a Cinemática Inversa</h4>
+        <br>
+        A cinemática inversa é um processo matemático para calcular as variáveis dos paramêtros das juntas
+        necessárias para colocar em prática o fim da cadeia cinemática. Desta forma iremos
+        conseguir obter a pose de um Robô numa determinada orientação ao inicio desta mesma cadeia.
+        <br>
+        <samp>cininv = KR5.ikine(T) %cálculo da cinemática inversa</samp>
+        <br>
+        Agora vamos apresentar algumas abordagens do nosso KUKA KR5 em determinas poses
+        utilizando a cinemática inversa.
+        <br>
+        <br>
+        KUKA KR5 em cinemática inversa (simples)
+        <br>
+        <img src="images/kukaKR5ikine.png" class="img-fluid">
+        <br>
+        <samp>plot(KR5, cininv) %KR5 em cinemática inversa</samp>
+        <br>
+        <br>
+        KUKA KR5 em cinemática inversa com o cotovelo para baixo
+        <br>
+        <img src="images/kukaKR5ikinecotbaixo.png" class="img-fluid">
+        <br>
+        <samp>plot(KR5, cininvCotBaixo) %KR5 em cinemática inversa com o cotovelo para baixo</samp>
+        <br>
+        <br>
+        <h4>Agora vamos fazer alguns testes de Movimento ao KUKA KR5</h4>
+        <br>
+        Agora que já conseguimos obter as cinemáticas, vamos observar o comportamento do KUKA KR5 em determinados cenários
+        <br>
+        Iremos definir criar 6 eventos com diferentes coordenadas. O objetivo é utilizar a cinemática inversa
+        para obter ângulos a partir das coordenadas X Y e Z dos eventos criados.
+        <br>
+        Iremos utilizar um novo método, o <samp>ikcon</samp> em vez do tipico <samp>ikine</samp>
+        porque o primeiro tem uma optimização para controlar o limite das juntas.
+        Também é uma mais valia para o nosso cenário, uma vez que minimiza a margem de erro entre a cinemática direta 
+        a soluções de ajuste do end-effector.
+        <br>
+        Mas antes de criarmos os eventos, teremos que definir uma nova métrica de tempo, para 
+        obsevarmos o comportamento do Robô.
+        <br>
+        <br>
+        <samp>% Coordenadas em X Y e Z</samp>
+        <br>
+        <samp>ponto1 = SE3(0.9, 0.2, 0.5);</samp>
+        <br>
+        <samp>ponto2 = SE3(.5,-0.5, -2);</samp>
+        <br>
+        <samp>ponto3 = SE3(1.5, 1.5, 1.5);</samp>
+        <br>
+        <samp>ponto4 = SE3(0.5, 0.04, 0.5);</samp>
+        <br>
+        <samp>ponto5 = SE3(0.9, -5, 3);</samp>
+        <br>
+        <samp>ponto6 = SE3(-15, -10, -16);</samp>
+        <br>
+        <br>
+        Agora que já temos os pontos definidos, vamos aplicar a cinemática inversa para obter os ângulos
+        a partir das coordenadas criadas.
+        <br>
+        <br>
+        <samp>q1 = KR5.ikcon(ponto1)</samp>
+        <br>
+        <samp>q2 = KR5.ikcon(ponto2)</samp>
+        <br>
+        <samp>q3 = KR5.ikcon(ponto3)</samp>
+        <br>
+        <samp>q4 = KR5.ikcon(ponto4)</samp>
+        <br>
+        <samp>q5 = KR5.ikcon(ponto5)</samp>
+        <br>
+        <samp>q6 = KR5.ikcon(ponto6)</samp>
+        <br>
+        <br>
+        Como nos foi ensinado nas aulas teóricas, é importante garantirmos que conhecemos todas as singularidades que o 
+        nosso Robô pode ter. 
+        <br>
+        Vamos criar matrizes jacobianas para cada ponto para determinarmos a existência de alguma singularidade
+        <br>
+        <br>
+        <samp>J1 = KR5.jacobn(q1);
+          det(J1)</samp>
+        <br>
+        <samp>J2 = KR5.jacobn(q2);
+          det(J2)</samp>
+        <br>
+        <samp>J3 = KR5.jacobn(q3);
+          det(J3)</samp>
+        <br>
+        <samp>J4 = KR5.jacobn(q4);
+          det(J4)</samp>
+        <br>
+        <samp>J5 = KR5.jacobn(q5);
+          det(J5)</samp>
+        <br>
+        <samp>J6 = KR5.jacobn(q6);
+          det(J6)</samp>
+        <br>
+        <samp>J7 = KR5.jacobn(pos_B);
+          det(J7)</samp>
+        <br>
+        <br>
+        E pronto! Agora é a parte interessante! Vamos ver o KUKA KR5 a passar pelos vários pontos
+        desde do início até ao fim (posição A até à posição B)
+        <br>
+        <br>
+        <h5>Da Posição inicial (pos_A) até ao ponto1</h5>
+        <div class="video-block block">
+          <video src="images/kukaKR5Ato1.mp4" autoplay muted loop ></video>
+        </div>
+        <samp>path=mtraj(@tpoly,pos_A,q1,tempo2); 
+          plot(KR5,path, 'trail', {"r", 'LineWidth', 8}, 'movie', 'kukaKR5Ato1.mp4'); %Posição A até Ponto1</samp>
+        <br>
+        <br>
+        <h5>Do ponto1 até ao ponto2</h5>
+        <div class="video-block block">
+         <video src="images/kukaKR51to2.mp4" autoplay muted loop ></video>
+        </div>
+        <samp>path=mtraj(@tpoly,q1,q2,tempo2);
+          plot(KR5,path, 'trail', {"r", 'LineWidth', 8}, 'movie', 'kukaKR51to2.mp4'); % Posição Ponto1 até Ponto2</samp>
+        <br>
+        <br>
+        <h5>Do ponto2 até ao ponto3</h5>
+        <div class="video-block block">
+         <video src="images/kukaKR52to3.mp4" autoplay muted loop ></video>
+        </div>
+        <samp>path=mtraj(@tpoly,q2,q3,tempo2);
+          plot(KR5,path, 'trail', {"r", 'LineWidth', 8}, 'movie', 'kukaKR52to3.mp4');% Posição Ponto2 até Ponto3</samp>
+        <br>
+        <br>
+        <h5>Do ponto3 até ao ponto4</h5>
+        <div class="video-block block">
+          <video src="images/kukaKR53to4.mp4" autoplay muted loop ></video>
+        </div>
+        <samp>path=mtraj(@tpoly,q3,q4,tempo2);
+          plot(KR5,path, 'trail', {"r", 'LineWidth', 8}, 'movie', 'kukaKR53to4.mp4');% Posição Ponto3 até Ponto4</samp>
+        <br>
+        <br>
+        <h5>Do ponto4 até ao ponto5</h5>
+        <div class="video-block block">
+          <video src="images/kukaKR54to5.mp4" autoplay muted loop ></video>
+        </div>
+        <samp>path=mtraj(@tpoly,q4,q5,tempo2);
+          plot(KR5,path, 'trail', {"r", 'LineWidth', 8}, 'movie', 'kukaKR54to5.mp4'); % Posição Ponto4 até Ponto5</samp>
+        <br>
+        <br>
+        <h5>Do ponto5 até ao ponto6</h5>
+        <div class="video-block block">
+         <video src="images/kukaKR55to6.mp4" autoplay muted loop ></video>
+        </div>
+        <samp>path=mtraj(@tpoly,q5,q6,tempo2);
+          plot(KR5,path, 'trail', {"r", 'LineWidth', 8}, 'movie', 'kukaKR55to6.mp4'); % Posição Ponto5 até Ponto6
+          </samp>
+        <br>
+        <br>
+        <h5>E, finalmente do ponto6 à posição final (pos_B)</h5>
+        <div class="video-block block">
+         <video src="images/kukaKR56toB.mp4" autoplay muted loop ></video>
+        </div>
+        <samp>path=mtraj(@tpoly,q6,pos_B,tempo2);
+          plot(KR5,path, 'trail', {"r", 'LineWidth', 8}, 'movie', 'kukaKR56toB.mp4');% E finalmente. Posição Ponto6 até Posição B</samp>
+        <br>
+        <br>
+        Nos pedaços de código, colocámos a trajetória do movimento com <samp>trail</samp> e também colocámos a forma de extrair o filme em formato .mp4 para a drive da Matlab  com o método <samp>movie</samp>.        
+      </p>
+        <h2>Outra abordagem com o KUKA KR5 </h2>
+        <p>
+          Vamos apresentar uma abordagem inspirada num exemplo partilhado por Peter Corke
+      </p>
+        <h2>Unir 4 esferas e formar um Quadrado</h2>
+        <br>
+        <h3>Desta vez iremos apenas utilizar a Cinemática Inversa</h3>
+        <br>
+        <p>
+         Primeiro passo, criar o Robô
+       </p>
+       <br>
+        <samp>mdl_KR5                     % Cria o Robô</samp>
+       <br>
+       <samp>KR5.tool = SE3(0, 0, 0.2)   % Cria o comprimento da ferramenta </samp>
+       <br>
+       <samp>s = 0.2                     % Desenha o tamanho do quadrado</samp>
+       <br>
+       <br>
+       <p>
+          Já temos o ambiente criado, vamos agora desenhar as coordenadas do KUKA KR5
+        </p>
+        <br>
+        <samp>
+         p = [s s 0 pi/2 % inicio<br>
+        -s s 0 pi/2 % lado1<br>
+        -s s 0 0    % roda<br>
+        -s -s 0 0   % lado2<br>
+        -s -s 0 pi/2% roda<br>
+         s -s 0 pi/2% lado3<br>
+         s -s 0 0   % roda<br>
+         s  s 0 0   % lado4<br>
+        ]<br>
+        <br>
+        t1 = 5  % tempo para cada lado<br>
+        t2 = 1  % tempo cada rodação<br>
+        </samp>
+        <br>
+        <p>
+          Agora temos a parte que é necessário gerar as trajetórias
+        </p>
+        <samp>
+          % Cria a trajetória, e a matriz com cada linha considerando (x, y, z,<br>
+          % theta)<br>
+          pt = mstraj(p, [], [t1 t2 t1 t2 t1 t2 t1], [], 0.1, 0.4)<br>
+        <br>
+          % Translação para cada ponto da trajetória<br>
+          X = SE3([0.5 0 -s])<br>
+        <br>
+          % Cada ponto na trajetória, faz a traslação, define o eixo do z para baixo<br>
+          % e roda o "gripper" do eixo z<br>
+          Tt = SE3(pt(:,1:3)) * X * SE3.Ry(pi) * SE3.Rz(pt(:,4))<br>
+        </samp>
+        <br>
+        <p>
+          Vamos aplicar a Cinemática Inversa<br>
+          <samp>qt = KR5.ikine6s(Tt, 'qn') % Cinemática Inversa com o cotovelo para cima</samp>
+        </p>
+        <p>
+          E vamos encontrar os cantos do quadrado<br>
+          <samp>ps = X * p(1:2:end,1:3)' % Posição dos cantos do quadrado, e pontos ímpares</samp>
+        </p>
+        <p>
+          Para unirmos os quatro pontos e desenhar o quadrado, vamos adicionar quatro esferas ao ambiente<br>
+        <samp>
+        clf<br>
+        plot_sphere(ps, 0.03, 'b') % cria a esfera<br>
+        </samp>
+        </p>
+        <p>
+          <h4>E por fim... Vamos ver o KUKA KR5 a desenhar um quadrado</h4>
+          <div class="video-block block">
+            <video src="images/kukaKR5sphere.mp4" autoplay muted loop ></video>
+           </div>
+           <samp>KR5.plot(qt, 'trail', {'y', 'LineWidth', 5}, 'nowrist', 'view', [138 8], 'movie', 'kukaKR5sphere.mp4')</samp>
+           <br>
+           <br>
+           Nos pedaços de código, colocámos a trajetória do movimento com <samp>trail</samp> e também colocámos a forma de extrair o filme em formato .mp4 para a drive da Matlab  com o método <samp>movie</samp>.
+          </p>
+      </div>
+
+  <!-- blog details -->
+  
+<section class="section-sm bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-4">
+      </div>
+      <!-- border -->
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- jQuery -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="plugins/venobox/venobox.min.js"></script>
+<!-- filter -->
+<script src="plugins/filterizr/jquery.filterizr.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+<script src="plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
